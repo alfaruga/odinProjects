@@ -100,36 +100,37 @@ section {
   display: block;
 }
 :root {
-  --font-size: clamp(0.5rem, px, 2.8rem);
-  --box-width: clamp(460px, 80vw, 60rem);
-  --line-h: clamp(0.9rem, 3.5vw, 3rem);
 }
 html {
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 10px;
+  background-image: url("./images/karl-paul-baldacchino-FVIfpmHYb-o-unsplash.jpg");
+  background-size: cover;
+  background-position: bottom;
+
 }
 body {
   width: 95vw;
   height: 100vh;
-  background-image: url("./images/karl-paul-baldacchino-FVIfpmHYb-o-unsplash.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
+  
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 ol,
 ul {
   list-style: none;
-  width: 380px;
-  margin: auto;
-  margin-top: 15px;
+  width: 350px;
+  height: 70vh;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 blockquote,
@@ -149,40 +150,40 @@ table {
 }
 
 div,
-label,
 fieldset {
   box-sizing: border-box;
-  width: 400px;
   margin: 15px 3px;
-  font-size: var(--font-size);
 }
-fieldset {
-  border-radius: 15px;
-}
+
 p,
 legend,
 input,
 label {
-  font-family: 'Kanit', sans-serif;
   box-sizing: border-box;
-  width: 380px;
-  font-size: max(20px, 1.3vw);
+  -moz-box-sizing: border-box;
+  width: 300px;
+  font-family: "Kanit", sans-serif;
+  box-sizing: border-box;
+  font-size: max(18px, 1.2vw);
 }
 h1 {
   font-size: max(30px, 2.5vw);
   font-family: "Kanit", sans-serif;
 }
 input {
-  width: 250px;
-  margin: 15px 0;
+  width: 200px;
+  outline: none;
+  margin: 5px 0;
   position: relative;
-  background-color: #b3d4fc;
+  background-color: white;
   color: #333;
   border: none;
 }
+
 .container-main {
+  margin: 0;
   width: max(50vw, 600px);
-  height: 95vh;
+  height: 160vh;
   background-color: rgba(245, 245, 245, 0.9);
   display: flex;
   flex-direction: column;
@@ -191,29 +192,28 @@ input {
 }
 .container-title {
   text-align: center;
+  width: 345px;
   padding: 5px;
   color: white;
   background-color: rgba(0, 0, 0, 0.7);
 }
 
 #form {
-  text-align: left;
   display: flex;
   flex-direction: column;
-  height: 60vh;
-  justify-content:space-around;
-  align-items: center;
+  height: 100vh;
+  justify-content: space-around;
+  align-items: flex-start;
 }
 li {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  align-items: baseline;
+  align-items: flex-start;
+  justify-content: space-evenly;
 }
 
 button {
   width: 100px;
-  margin: auto;
   margin: 0 auto;
   border: none;
   padding: 5px 3px;
@@ -238,17 +238,21 @@ input:invalid + span::before {
   position: absolute;
   content: "At least 2 letters long. No whitespaces allowed";
   background-color: rgba(255, 0, 0, 0.3);
-  top: -48px;
+  top: -30px;
   left: -135px;
+}
+input:focus-visible {
+  
+  outline: 1px solid blue;
 }
 input[type="email"]:invalid + span::before {
   content: "Please enter a valid email";
-  top: -37px;
+  top: -30px;
   left: -117px;
 }
 input[type="tel"]:invalid + span::before {
   content: "Must be 10 digits long";
-  top: -36px;
+  top: -30px;
   left: -101px;
 }
 input::placeholder {
@@ -258,13 +262,17 @@ input::placeholder {
 @media only screen and (min-width: 480px) {
   ul {
     display: grid;
-    margin: 0;
-    width: 70%;
+    margin: 0 auto;
+    width: 100%;
+    height: 70%;
     grid-template-columns: 50% 50%;
     grid-template-rows: 30% 30% 30%;
   }
   li {
     flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    justify-content: center;
     padding: 0 15px;
   }
   fieldset {
@@ -276,24 +284,36 @@ input::placeholder {
   }
   body {
     align-items: flex-end;
+    justify-content: center;
   }
-  p{
+  p {
     width: 600px;
     line-height: 3rem;
   }
+  input {
+    width: 270px;
+  }
   input:invalid + span::before {
     width: 110px;
-    top: -90px;
-    left: 140px;
+    top: -85px;
+    left: 160px;
   }
   input[type="email"]:invalid + span::before {
-    top: -80px;
-    left: 140px;
+    top: -70px;
+    left: 160px;
   }
   input[type="tel"]:invalid + span::before {
-    
     margin: 5px 0;
-    top: -80px;
-    left: 140px;
+    top: -75px;
+    left: 160px;
+  }
+  #form {
+    height: 70vh;
+    width: 600px;
+    justify-content: center;
+    align-items: center;
+  }
+  .container-main {
+    height: 95vh;
   }
 }
