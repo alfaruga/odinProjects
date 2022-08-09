@@ -1,0 +1,60 @@
+body {
+  display: grid;
+  grid-template: 1fr 10fr / 1fr 5fr;
+  grid-template-areas:
+    "dashboard header"
+    "dashboard main-container";
+}
+div,
+p {
+  font-size: 15px;
+}
+.side-bar {
+  grid-area: dashboard;
+}
+
+header {
+  grid-area: header;
+}
+
+.main-container {
+  background-color: aquamarine;
+  grid-area: main-container;
+  display: grid;
+  gap: 15px;
+  grid-template: 1fr / 4fr 1fr;
+  grid-template-areas: "projects anouncements-trending";
+}
+
+.projects {
+  padding: 15px;
+  grid-area: projects;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.articles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+}
+.trending {
+  background-color: white;
+  margin: 10px 0 0 0;
+}
+.anouncements {
+  background-color: white;
+}
+.project {
+  background-color: white;
+}
+#projects-title {
+  grid-area: projects-title;
+}
+.anouncements-trending-container {
+  margin: 10px;
+  grid-area: anouncements-trending;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
